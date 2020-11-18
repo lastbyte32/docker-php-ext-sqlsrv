@@ -7,6 +7,11 @@ RUN apk -U upgrade && apk add --no-cache \
     g++ \
     unixodbc-dev \
     php-pdo_mysql \
-    && rm -rf /var/cache/apk/*
-#RUN pecl update-channels
-RUN pecl install sqlsrv-5.8.1 && pecl install pdo_sqlsrv-5.8.1
+    && pecl install sqlsrv-5.8.1 && pecl install pdo_sqlsrv-5.8.1 && apk del --no-cache \
+    php7-pear \
+    php7-dev \
+    make \
+    g++ \
+    unixodbc-dev \
+    php-pdo_mysql \
+    && rm -rf /var/cache/apk/* /tmp/*
